@@ -7,8 +7,29 @@ exports.findAll = (req, res) => {
             res.send(horarios);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving notes."
+                message: err.message || "Error."
             });
         });
     };
+/* 
+exports.findOne = (req, res) => {
+    ModelHorario.findById(req.params.horaId)
+    .then(horarios => {
+        if(!horarios) {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.horaId
+            });            
+        }
+        res.send(horarios);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Note not found with id " + req.params.horaId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.horaId
+        });
+    });
+}; */
     
